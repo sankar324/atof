@@ -167,6 +167,7 @@
 		  
 		    <div class="connect-form" data-aos="fade-right" data-aos-delay="300">
 			    <form id="contact_frm" >
+					<img id="loader-image" src="images/loader-image.gif" width="500" height="500" alt="Loading image" />
 				
 				<div class="container">
 				  <div class="row">
@@ -220,7 +221,7 @@
 		   <div class="container mt-2 mb-3 pd-ll">
 		   
 		    <div class="row">
-			  <div class="col-md-4 pl-0 pl-ll">
+			  <div class="col-md-4 pl-0 pl-ll form-group">
 			     <label style="display:block; line-height:40px;" >Marketing Resource</label>
 			  </div>
 			  
@@ -255,11 +256,13 @@
 		   <div class="container">
 		     <div class="row">
 			   <div class="col-md-12 pl-0">
+				<div class="form-group">
 			     <label>Services Required</label>
+				</div>
 			   </div>
 			   
 			   
-			   <div class="col-md-5 pl-0 pd-rr">
+			   <div class="col-md-5 pl-0 pd-rr form-group">
 			      <select class="form-control form-input" id="sel1" name="sellist1">
 				     <option>Select</option>
                      <option>Branding & Strategy</option>
@@ -274,7 +277,7 @@
                 </select>
 			   </div>
 			   
-			   <div class="col-md-1 text-center">
+			   <div class="col-md-1 text-center form-group">
 			     <label style="display:block; line-height:40px;">OR</label>
 			   </div>
 			   
@@ -291,11 +294,18 @@
 		   
 		     <div class="container mt-5">
 			   <div class="row">
-			     <div class="col-md-12 text-center">
+			     <div class="col-md-12 text-center form-group">
 				    <button type="button" id="submit_btn"  class="cus-btn">Let's Start <span> <img src="images/Form-go.png" width="25px" /> </span></button>
 				 </div>
 			   </div>
 			 </div>
+
+			 <div class="container mt-5">
+				<div class="row">
+				  <div class="col-md-12 text-center form-Success">
+					 <p>Thank you for your interest. One of our ATOF Champion will connect with you Shortly.</p>
+				</div>
+			  </div>
 		   
 		   
 		   
@@ -315,7 +325,12 @@
 	
 <script>
 	$(document).ready(function () {
+		$("#loader-image").hide();
+		$(".form-Success").hide();
     $("#submit_btn").click(function () {
+		$(".form-group, .form-check, .inline-check").hide();
+		$("#loader-image").show();
+		
         var form = $('#contact_frm')[0];
         var data = new FormData(form);
         $.ajax({
@@ -330,10 +345,12 @@
             beforeSend: function () {
                 // Show image container
                 // $("#submition_loader").show();
+				$("#loader-image").show();
             },
             success: function (data) {
-                
-                // alert (data);
+                $("#loader-image").hide();
+				$(".form-Success").show();
+               
             },
             complete: function (data) {
 				// alert (data);

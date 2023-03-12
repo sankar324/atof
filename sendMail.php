@@ -15,16 +15,16 @@ require_once './PHPMailer/PHPMailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
 try{
-	$email_from = "sathish.swprof@gmail.com"; //Sender: Please replace email ID for from mail address
-    $password = "qyfthqpvsifxvzod"; //Sender: Please replace for from email ID password.
-	$name_from = "ServiceDesk-Service Request Mail !!";
-	$email_to = "sathish.swprof@gmail.com"; //Please replace it
+	$email_from = "marketing@atof.in"; //Sender: Please replace email ID for from mail address
+    $password = "atof@654321"; //Sender: Please replace for from email ID password.
+	$name_from = "ATOF.in Marketing";
+	//$email_to = "sathish.swprof@gmail.com"; //Please replace it
 
 
 	$mail->IsSMTP(); // telling the class to use SMTP
 	$mail->SMTPAuth = true; // enable SMTP authentication
 	$mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-	$mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+	$mail->Host = "bom1plzcpnl498923.prod.bom1.secureserver.net"; // sets GMAIL as the SMTP server
 	$mail->Port = 465; // set the SMTP port for the GMAIL server
 	$mail->Username = $email_from; // GMAIL username
 	$mail->Password = $password; // GMAIL password
@@ -32,7 +32,7 @@ try{
 
 	$email = $_POST['email']; // this is the sender's Email address
     $fullName = $_POST['name'];
-    $subject = "Service Request Form submission";
+    $subject = "Marketing Enquiry!!!";
     $message = "Full name: ".$fullName . "\n\n Contact No.: " . $_POST['phone']."\n\n Email ID: ". $_POST['email']. " \n\n Company Name: ". $_POST['Company']."\n\n Industry Type: ".$_POST['Industry']." \n\n\n Thanks,\n ATOF";
 
 	//Typical mail data
