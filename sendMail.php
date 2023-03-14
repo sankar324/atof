@@ -18,7 +18,7 @@ try{
 	$email_from = "marketing@atof.in"; //Sender: Please replace email ID for from mail address
     $password = "atof@654321"; //Sender: Please replace for from email ID password.
 	$name_from = "ATOF.in Marketing";
-	//$email_to = "sathish.swprof@gmail.com"; //Please replace it
+	$email_to = "sathish.swprof@gmail.com"; //Please replace it
 
 
 	$mail->IsSMTP(); // telling the class to use SMTP
@@ -30,10 +30,34 @@ try{
 	$mail->Password = $password; // GMAIL password
 	
 
-	$email = $_POST['email']; // this is the sender's Email address
-    $fullName = $_POST['name'];
-    $subject = "Marketing Enquiry!!!";
-    $message = "Full name: ".$fullName . "\n\n Contact No.: " . $_POST['phone']."\n\n Email ID: ". $_POST['email']. " \n\n Company Name: ". $_POST['Company']."\n\n Industry Type: ".$_POST['Industry']." \n\n\n Thanks,\n ATOF";
+    $subject = "";
+    $message = "";
+	if($_POST['form_type'] == 'service_request'){
+		$subject = "Marketing Enquiry!!!";
+		$message .= " Full name: ".$_POST['name'] . "\n\n";
+		$message .= "Contact No.: " . $_POST['phone']."\n\n"; 
+		$message .= "Email ID: ". $_POST['email']. " \n\n";
+		$message .= "Company Name: ". $_POST['Company']."\n\n";
+		$message .= "Industry Type: ".$_POST['Industry']." \n\n";
+		$message .= "Marketing Resource: ".$_POST['marketing_resource']." \n\n";
+		$service_required = "";
+		if(isset($_POST['sellist'])){
+			$service_required = $_POST['sellist'];
+		}else{
+			$service_required = $_POST['request_free_demo'];
+		}
+		$message .= "Services Required: ".$service_required." \n\n";
+	}
+
+	if($_POST['form_type'] == 'contact_request'){
+		$subject = "Requesting for contact!!!";
+		$message .= "Full name: ".$_POST['Name'] . "\n\n";
+		$message .= "Contact No.: " . $_POST['phone']."\n\n"; 
+		$message .= "Email ID: ". $_POST['Email']. " \n\n";
+		$message .= "Message: ". $_POST['message']. " \n\n";
+		$message .= "Time Slots: ". implode(', ',$_POST['timeslots']). " \n\n";
+	}
+	$message .= "\n Thanks,\n ATOF";
 
 	//Typical mail data
 	$mail->AddAddress($email_to, $name_from);
@@ -42,8 +66,8 @@ try{
 	$mail->Body = $message;
 	
 	
-		$mail->Send();
-		echo "Success!";
+	$mail->Send();
+	echo "Success!";
 } catch(Exception $e){
     //Something went bad
     echo "Fail - " . $mail->ErrorInfo;

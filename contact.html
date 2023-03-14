@@ -12,7 +12,6 @@
 	
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	
-
 </head>
 <body>
 
@@ -73,7 +72,7 @@
 		  
 		  <div class="col-md-5">
 		     <h2 class="text-center mb-3">Request a call back</h2>
-		    <div class="connect-form request-form" data-aos="fade-right" data-aos-delay="300">
+		    <div class="connect-form request-form" data-aos="fade-right" data-aos-delay="300" id="connect_form" >
 			
 			 
 			    <form id="contact_frm" >
@@ -111,7 +110,7 @@
 				    <div class="col-md-12 pl-0 pr-0">
 					   <div class="form-group">
                     <label for="name">Message(Optional)</label>
-                    <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+                    <textarea id="w3review" name="message" rows="4" cols="50"></textarea>
                   </div>
 					</div>
 				  </div>
@@ -123,17 +122,17 @@
 			  <div class="inline-check">
 			    <div class="form-check">
       <label class="form-check-label" for="check1">
-        <input type="checkbox" class="form-check-input" id="check1" name="Inhouse" value="something" checked>10-12AM
+        <input type="checkbox" class="form-check-input" id="check1" name="timeslots[]" value="10-12AM" checked>10-12AM
       </label>
     </div>
     <div class="form-check">
       <label class="form-check-label" for="check2">
-        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">12-02PM
+        <input type="checkbox" class="form-check-input" id="check2" name="timeslots[]" value="12-02PM">12-02PM
       </label>
     </div>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something">04-07PM
+        <input type="checkbox" class="form-check-input" id="check3" name="timeslots[]" value="04-07PM">04-07PM
       </label>
     </div>
 	
@@ -166,10 +165,24 @@
 			 </div>
 		   
 		   
-		   
+			 <input type="hidden" name="form_type" value="contact_request"/>
 				</form>
 				
 				
+			</div>
+
+			<div class="connect-form" id="success_msg">
+				<div class="container text-center">
+					<img src="images/checked.png" width="75px" />
+				</div>
+				<div class="container mt-5">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<p>Thank you for your interest. One of our ATOF Champion will connect with you
+								Shortly.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		   
 		  </div>
@@ -231,9 +244,43 @@
 	
 
 	
-	
+	<script>
+		$(document).ready(function () {
+			$("#success_msg").hide();
+			$("#submit_btn").click(function () {
+				var form = $('#contact_frm')[0];
+				var data = new FormData(form);
+				$.ajax({
+					type: "POST",
+					enctype: 'multipart/form-data',
+					url: "sendMail.php",
+					data: data,
+					processData: false,
+					contentType: false,
+					cache: false,
+					timeout: 6000000,
+					beforeSend: function () {
+						// Show image container
+						// $("#submition_loader").show();
+						$("#loader-image").show();
+					},
+					success: function (data) {
+						$("#connect_form").hide();
+						$("#loader-image").hide();
+						$("#success_msg").show();
 
-	
+					},
+					complete: function (data) {
+						// alert (data);
+						// Hide image container
+						// $("#submition_loader").hide();
+					}
+				});
+			})
+		})
+	</script>
+
+
 	
 	
 	
