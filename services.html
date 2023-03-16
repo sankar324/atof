@@ -23,7 +23,7 @@
 	<header>
 		<div class="container-fluid pl-md-5">
 			<nav class="navbar navbar-expand-lg navbar-light">
-				<a class="navbar-brand" href="index.html"><img class="logo" src="images/Logo.png" width="auto"
+				<a class="navbar-brand" href="https://atof.in/"><img class="logo" src="images/Logo.png" width="auto"
 						height="50" alt="Logo"></a>
 				<button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item ">
-							<a class="nav-link" href="index.html">@Home </a>
+							<a class="nav-link" href="https://atof.in/">@Home </a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="about.html"> @About</a>
@@ -183,7 +183,7 @@
 										<div class="col-md-10 pl-0 pr-0">
 											<div class="form-group">
 												<label for="name">Full Name</label>
-												<input type="text" required class="form-control form-input" id="name"
+												<input type="text" class="form-control form-input" id="name"
 													name="name">
 											</div>
 										</div>
@@ -196,7 +196,7 @@
 										<div class="col-md-6 pl-0 pd-rr">
 											<div class="form-group">
 												<label for="phone">Phone</label>
-												<input type="number" required class="form-control form-input" id="phone"
+												<input type="number" class="form-control form-input" id="phone"
 													name="phone">
 											</div>
 										</div>
@@ -204,7 +204,7 @@
 										<div class="col-md-6 pr-0 pl-0">
 											<div class="form-group">
 												<label for="email">E-mail</label>
-												<input type="email" required class="form-control form-input" id="email"
+												<input type="email" class="form-control form-input" id="email"
 													name="email">
 											</div>
 										</div>
@@ -216,7 +216,7 @@
 										<div class="col-md-5 pl-0 pd-rr">
 											<div class="form-group">
 												<label for="Company">Company Name</label>
-												<input type="text" required class="form-control form-input" id="Company"
+												<input type="text" class="form-control form-input" id="Company"
 													name="Company">
 											</div>
 										</div>
@@ -257,7 +257,7 @@
 												<div class="form-check">
 													<label class="form-check-label">
 														<input type="radio" class="form-check-input" id="check3"
-															name="marketing_resource" value="Dont Have">Dont Have
+															name="marketing_resource" value="Don't Have">Don't Have
 													</label>
 												</div>
 
@@ -357,7 +357,6 @@
 			$("#success_msg").hide();
 			$("#submit_btn").click(function () {				
 				$("#loader-image").show();
-				$("#service_form").hide();
 
 				var form = $('#contact_frm')[0];
 				var data = new FormData(form);
@@ -376,6 +375,7 @@
 						$("#loader-image").show();
 					},
 					success: function (data) {
+						$("#service_form").hide();
 						$("#loader-image").hide();
 						$("#success_msg").show();
 
@@ -405,6 +405,7 @@
 		});
 	</script>
 
+
 	<Footer>
 		<div class="container">
 			<div class="footer-section">
@@ -417,7 +418,7 @@
 				<div class="footer-item">
 					<h5>Quick Link</h5>
 					<ul>
-						<li> <a href="index.html">Why Atof</a></li>
+						<li> <a href="https://atof.in/">Why Atof</a></li>
 						<li> <a href="about.html">About Atof </a></li>
 						<li> <a href="services.html">Services</a></li>
 						<li> <a href="contact.html">Connect </a></li>
@@ -428,11 +429,11 @@
 				<div class="footer-item">
 					<h5>Service Searches</h5>
 					<ul>
-						<li> <a href="#">SEO Management </a></li>
-						<li> <a href="#">E- Catalogue Management </a></li>
-						<li> <a href="#">PR Management</a></li>
-						<li> <a href="#">Social Media Marketing </a></li>
-						<li> <a href="#">Influencer Marketing</a></li>
+						<li> <a href="#" tabindex="-1">SEO Management    </a></li>
+					<li> <a href="#" tabindex="-1">E- Catalogue Management </a></li>
+					<li> <a href="#" tabindex="-1">PR Management</a></li>
+					<li> <a href="#" tabindex="-1">Social Media Marketing </a></li>
+					<li> <a href="#" tabindex="-1">Influencer Marketing</a></li>
 					</ul>
 				</div>
 
