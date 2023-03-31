@@ -45,8 +45,9 @@
             linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 10px) calc(100% - 16px) no-repeat,
             linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 16px) calc(100% - 10px) no-repeat,
             conic-gradient(#74c588 10%, #74c588 22%, #fdbf19 28%, #79c683 41%, #15b2dd 58%, #f55642 70%, #13b2de 82%, #13b2de 92%, #ff5555 125%);
-box-sizing: border-box;
+box-sizing: border-box; transition:0.1s;
 		}
+		a.navigate:hover{ background:#ff6600; color:#fff;}
   
 		
 		.colored-bar {
@@ -95,6 +96,8 @@ box-sizing: border-box;
 		.monial-container{padding-top:70px; position:relative;}
 		.monial-tik{ position:absolute; background:url(../images/Monial-tick.png) no-repeat; background-size:100px; height:100px; width:100px; left: 22px; top: -2px;}
 		.owl-carousel button.owl-dot{ }
+		.text-content{font-size: 20px; line-height: 35px; margin-bottom:10px;}
+		.content-pages h3{font-size: 24px; padding-top: 15px;}
 		
 		/* loader */
 		#loader {
@@ -134,8 +137,10 @@ box-sizing: border-box;
 		
 		 Footer{ background:#F2F2F2; padding:80px 0px;}
 		 .footer-section{ display:flex; flex-wrap:wrap;}
-		.footer-section .f-address{ color:#000; font-weight:600; font-size:27px; margin-top:55px;}
+		.footer-section .f-address{ color:#000; font-weight:600; font-size:21px; margin-top:55px;}
 		.footer-section .footer-item{ width:20%; padding-right:2%;}
+		.footer-section .footer-item:nth-child(2){ width:17%;}
+		.footer-section .footer-item:nth-child(3){ width:23%;}
 		.footer-section .footer-item h5{ font-size:27px;  font-weight:600; margin-top:50px;}
 		.footer-section .footer-item ul{ padding:0px; list-style:none;}
 		.footer-section .footer-item ul li{ display:block;}
@@ -268,7 +273,7 @@ background: linear-gradient(90deg, rgba(88,180,164,1) 0%, rgba(173,186,92,1) 100
 			.connect-project h2{font-size:40px; text-align:center;}
 			.contact-info p{font-size:24px;}
 			.contact-info h4{font-size:53px; font-weight:600;}
-			.footer-section .footer-item{ width:100%;}
+			.footer-section .footer-item{ width:100% !important;}
 			#Our-team{ margin-bottom:20px;}
 			.new-project{margin-top:20px;}
 			.service-box ul li{ width:45%;}
